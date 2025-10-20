@@ -1,0 +1,78 @@
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ADD THIS TO YOUR GLOBAL CSS FILE (e.g., src/index.css) */
+
+/* Define the scrolling animation keyframes */
+@keyframes scroll-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Translates the container left by exactly half its width (one full set of the duplicated circles) */
+    transform: translateX(-50%);
+  }
+}
+
+/* Define the custom utility class to apply the animation */
+.animate-scroll {
+  /* Animation: name | duration | timing-function | iteration-count */
+  animation: scroll-x 15s linear infinite; 
+  /* You can adjust '40s' to change the speed. */
+}
+.frosted-card {
+  background-color: rgba(255, 255, 255, 0.15); /* White with 85% opacity */
+  backdrop-filter: blur(2px); /* Adjust blur strength as needed */
+  -webkit-backdrop-filter: blur(2px); /* For Safari compatibility */
+}
+
+/* src/index.css or src/App.css */
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animated-gradient-bg {
+  /* Define the large gradient with multiple shades of blue and white */
+  background: linear-gradient(
+    -45deg,
+   #ffffff,        /* White */
+    #e0f2f7,        /* Very Light Blue */
+    #F96D00,        /* 🛑 NEW: Orange */
+    #b3e0ff,        /* Light Blue */
+    #00A8A8,        /* 🛑 NEW: Sea Green / Teal */
+    #80d4ff,        /* Medium Light Blue */
+    #0099e6,        /* Darker Blue */
+    #007acc         /* Deep Blue */
+  );
+  background-size: 400% 400%; /* Make the gradient larger than the viewport */
+  animation: gradient-animation 15s ease infinite; /* Apply the animation */
+}
+
+/* src/index.css or src/App.css */
+
+@keyframes blink-flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.animate-blink {
+    animation: blink-flash 1.5s step-start 0s infinite; /* 1.5 seconds cycle, infinite loop */
+}
